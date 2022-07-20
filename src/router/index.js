@@ -7,6 +7,10 @@ import Blog from '@/components/Blog'
 import Post from '@/components/Post'
 import Cart from '@/components/Cart'
 import Layout from '@/components/Layout'
+import Checkout from '@/components/Checkout'
+import Payment from '@/components/Payment'
+import Confirmation from '@/components/Confirmation'
+import SearchResults from '@/components/SearchResults'
 
 Vue.use(Router)
 
@@ -27,7 +31,7 @@ export default new Router({
           name:'Shop'
         },
         {
-          path:'/product',
+          path:'/product/:id',
           component:Product,
           name:'Product'
         },
@@ -45,6 +49,26 @@ export default new Router({
           path:'/cart',
           component:Cart,
           name:'Cart'
+        },
+        {
+          path:'/checkout',
+          component:Checkout,
+          name:'Checkout'
+        },
+        {
+          path:'/payment',
+          component:Payment,
+          name:'Payment'
+        },
+        {
+          path:'/confirmation',
+          component:Confirmation,
+          name:'Confirmation'
+        },
+        {
+          path:'/search',
+          component:SearchResults,
+          name:'Search'
         }
       ]
 

@@ -1,7 +1,11 @@
 <template>
   <div>
     <v-container>
-      <p class="display-3 font-weight-light	text-center pa-4">Read About Fashion</p>
+      <p class="display-3 font-weight-light	text-center pa-4">Search Results</p>
+      <v-row class="text-center"> <p class="text-center">
+        <h3 >Results for {{this.$route.query.q}}</h3>
+      </p>
+      </v-row>
         <div class="row">
           <div class="col-md-4 col-sm-4 col-xs-12">
             <router-link to="/post">

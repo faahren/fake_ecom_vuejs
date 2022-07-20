@@ -9,6 +9,15 @@ import router from './router'
 
 Vue.config.productionTip = false
 
+router.afterEach((to, from) => {
+  window.dataLayer.push({
+    'event': 'pageview',
+    page: {
+      page_location: to.fullPath
+    }
+  })
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

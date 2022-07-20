@@ -61,7 +61,8 @@
           >
            <h1 class="text-center font-size">Top Picks</h1>
             <div class="text-center">
-              <v-btn  href="/shop" class="white--text " outlined>SHOP NOW</v-btn>
+              <router-link to="/shop"><v-btn  class="white--text " outlined>SHOP NOW</v-btn></router-link>
+              
             </div>
 
 
@@ -92,7 +93,7 @@
           >
             <h1 class="text-center font-size">New Arrivals</h1>
             <div class="text-center">
-              <v-btn  href="/shop" class="white--text" outlined>SHOP NOW</v-btn>
+              <router-link to="/shop"><v-btn class="white--text caption"  text>SHOP NOW <v-icon class="white--text caption">mdi-arrow-right</v-icon></v-btn></router-link>
             </div>
           </v-img>
         </v-card>
@@ -111,7 +112,8 @@
           >
             <h1 class="text-center font-size">Lorem & Ipsum</h1>
             <div class="text-center mt-2">
-              <v-btn class="white--text caption"  href="/shop" text>SHOP NOW <v-icon class="white--text caption">mdi-arrow-right</v-icon></v-btn>
+              <router-link to="/shop"><v-btn class="white--text caption"  text>SHOP NOW <v-icon class="white--text caption">mdi-arrow-right</v-icon></v-btn></router-link>
+              
             </div>
           </v-img>
         </v-card>
@@ -128,7 +130,10 @@
           >
             <h1 class="text-center font-size">Lorem & Ipsum</h1>
             <div class="text-center mt-2">
-              <v-btn class="white--text caption"  href="/shop" text>SHOP NOW <v-icon class="white--text caption">mdi-arrow-right</v-icon></v-btn>
+              <router-link to="/shop">
+
+                <v-btn class="white--text caption" text>SHOP NOW <v-icon class="white--text caption">mdi-arrow-right</v-icon></v-btn>
+              </router-link>
             </div>
           </v-img>
         </v-card>
@@ -145,7 +150,8 @@
           >
             <h1 class="text-center font-size">Lorem & Ipsum</h1>
             <div class="text-center mt-2">
-              <v-btn class="white--text caption"  href="/shop" text>SHOP NOW <v-icon class="white--text caption">mdi-arrow-right</v-icon></v-btn>
+                <router-link to="/shop"><v-btn class="white--text caption"  text>SHOP NOW <v-icon class="white--text caption">mdi-arrow-right</v-icon></v-btn></router-link>
+
             </div>
           </v-img>
         </v-card>
@@ -184,14 +190,15 @@
                   </v-card-text>
 
                   <div class="text-center">
-                    <v-btn
-                      href="/shop"
+                    <router-link to="/shop"><v-btn
                       class="ma-2"
                       outlined
                       color="info"
                     >
                       Explore
-                    </v-btn>
+                    </v-btn></router-link>
+
+                    
                   </div>
                 </v-card>
                 </v-hover>
@@ -218,13 +225,16 @@
                   </v-card-text>
 
                   <div class="text-center">
-                    <v-btn href="/shop"
+                    <router-link to="/shop">
+                    <v-btn 
                       class="ma-2"
                       outlined
                       color="info"
                     >
                       Explore
                     </v-btn>
+                    </router-link>
+                    
                   </div>
                 </v-card>
                 </v-hover>
@@ -251,13 +261,15 @@
                   </v-card-text>
 
                   <div class="text-center">
-                    <v-btn href="/shop"
+                    <router-link to="/shop">
+                    <v-btn 
                       class="ma-2"
                       outlined
                       color="info"
                     >
                       Explore
                     </v-btn>
+                    </router-link>
                   </div>
                 </v-card>
                 </v-hover>
@@ -284,13 +296,15 @@
                   </v-card-text>
 
                   <div class="text-center">
-                    <v-btn href="/shop"
+                    <router-link to="/shop">
+                    <v-btn 
                       class="ma-2"
                       outlined
                       color="info"
                     >
                       Explore
                     </v-btn>
+                    </router-link>
                   </div>
                 </v-card>
                 </v-hover>

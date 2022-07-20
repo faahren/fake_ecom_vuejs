@@ -5,7 +5,7 @@
         <div class="col-md-5 col-sm-5 col-xs-12">
           <v-carousel>
             <v-carousel-item
-              :src="require('../assets/img/home/slider4.jpg')"
+              :src="require('../' + this.product.src)"
             >
             </v-carousel-item>
             <v-carousel-item
@@ -24,11 +24,21 @@
           </v-carousel>
         </div>
         <div class="col-md-7 col-sm-7 col-xs-12">
-          <v-breadcrumbs class="pb-0" :items="breadcrums"></v-breadcrumbs>
+          <v-breadcrumbs class="pb-0" :items="breadcrumbs">
+          <template v-slot:item="{ item }">
+            <v-breadcrumbs-item
+              :to="item.to"
+              class="text-subtitle-2 crumb-item"
+              exact
+            >
+            {{ item.text }}
+          </v-breadcrumbs-item>
+        </template>
+          </v-breadcrumbs>
           <div class="pl-6">
-            <p class="display-1 mb-0">Modern Black T-Shirt</p>
+            <p class="display-1 mb-0">{{this.product.name}}</p>
             <v-card-actions class="pa-0">
-              <p class="headline font-weight-light pt-3">$65.00 <del style="" class="subtitle-1 font-weight-thin">$80.00</del></p>
+              <p class="headline font-weight-light pt-3">${{this.product.price}} <del style="" class="subtitle-1 font-weight-thin">${{parseFloat(this.product.price) + 10}}</del></p>
               <v-spacer></v-spacer>
               <v-rating v-model="rating" class="" background-color="warning lighten-3"
                         color="warning" dense></v-rating>
@@ -38,7 +48,7 @@
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Tincidunt arcu non sodales neque sodales ut etiam. Lectus arcu bibendum at varius vel pharetra. Morbi tristique senectus et netus et malesuada.
             </p>
             <p class="title">SIZE</p>
-            <v-radio-group v-model="row" row>
+            <v-radio-group  row>
               <v-radio label="XS" value="XS"></v-radio>
               <v-radio label="S" value="s"></v-radio>
               <v-radio label="M" value="m"></v-radio>
@@ -57,9 +67,7 @@
             <v-btn class="ml-4" outlined tile>ADD TO WISHLIST</v-btn>
 
           </div>
-
-        </di>
-      </div>
+        </div>
       </div>
       <div class="row">
         <div class="col-sm-12 col-xs-12 col-md-12">
@@ -364,24 +372,27 @@
   </div>
 </template>
 <script>
+
+    const products = require('./products.json');
     export default {
         data: () => ({
+            product: {},
             rating:4.5,
-            breadcrums: [
+            breadcrumbs: [
                 {
                     text: 'Home',
                     disabled: false,
-                    href: 'breadcrumbs_home',
+                    to: '/shop',
                 },
                 {
                     text: 'Clothing',
                     disabled: false,
-                    href: 'breadcrumbs_clothing',
+                    to: '/shop',
                 },
                 {
                     text: 'T-Shirts',
                     disabled: true,
-                    href: 'breadcrumbs_shirts',
+                    to: '/shop',
                 },
             ],
             item: 5,
@@ -414,5 +425,10 @@
                 },
             ],
         }),
+        beforeMount: function() {
+          const id = this.$route.params.id;
+          const product = products.find(x => x.id == id);
+          this.product = product;
+        }
     }
 </script>

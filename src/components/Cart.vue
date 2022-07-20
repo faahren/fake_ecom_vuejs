@@ -108,7 +108,9 @@
             </template>
           </v-simple-table>
           <div class="text-center">
-            <v-btn class="primary white--text mt-5" outlined>PROCEED TO PAY</v-btn>
+            <router-link to="/checkout">
+              <v-btn class="primary white--text mt-5" outlined>PROCEED TO PAY</v-btn>
+            </router-link>
           </div>
         </v-col>
       </v-row>
@@ -158,7 +160,7 @@
     export default {
         data: () => ({
             rating: 4.5,
-            breadcrums: [
+            breadcrumbs: [
                 {
                     text: 'Home',
                     disabled: false,

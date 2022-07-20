@@ -11,7 +11,9 @@
       <v-toolbar-title
         style="width: 350px"
       >
-        <a href="/" class="white--text" style="text-decoration: none"><v-icon>mdi-truck</v-icon>&nbsp;ShipIT</a>
+        <router-link to="/">
+          <span class="white--text" style="text-decoration: none"><v-icon>mdi-truck</v-icon>&nbsp;Adviso Store</span>
+        </router-link>
       </v-toolbar-title>
       <v-text-field
         flat
@@ -20,12 +22,13 @@
         prepend-inner-icon="mdi-magnify"
         label="Search"
         class="hidden-sm-and-down pl-10 ml-4"
+        @keyup.enter="onEnter"
       />
       <v-spacer />
       <v-btn icon>
         <v-icon>mdi-account-circle</v-icon>
       </v-btn>
-      <v-btn v-on="on" icon>
+      <v-btn icon>
         <v-badge
           content="2"
           value="2"
@@ -35,16 +38,18 @@
           <v-icon>mdi-bell</v-icon>
         </v-badge>
       </v-btn>
-      <v-btn v-on="on" href="/cart" icon>
-        <v-badge
-          content="2"
-          value="2"
-          color="green"
-          overlap
-        >
-          <v-icon>mdi-cart</v-icon>
-        </v-badge>
-      </v-btn>
+      <router-link to="/cart">
+        <v-btn icon>
+          <v-badge
+            content="2"
+            value="2"
+            color="green"
+            overlap
+          >
+            <v-icon>mdi-cart</v-icon>
+          </v-badge>
+        </v-btn>
+      </router-link>
     </v-app-bar>
     <v-content>
       <v-bottom-navigation
@@ -52,9 +57,11 @@
         color="primary"
         horizontal
       >
-        <a href="/" class="v-btn">
-          <span>Home</span>
-        </a>
+        <router-link to="/"  class="v-btn">
+          <span class="v-btn">
+            <span>Home</span>
+          </span>
+        </router-link>
         <v-menu open-on-hover offset-y>
           <template v-slot:activator="{ on }">
             <v-btn v-on="on">
@@ -71,19 +78,17 @@
               v-for="(item, index) in items"
               :key="index"
               @click=""
-              href="/shop"
             >
-              <v-list-item-title>{{ item.title }}</v-list-item-title>
+              <v-list-item-title><router-link to="/shop">{{ item.title }}</router-link></v-list-item-title>
             </v-list-item>
 
           </v-card>
         </v-menu>
-        <a href="/product" class="v-btn">
-          <span>Product</span>
-        </a>
-        <v-btn href="/blog">
-          <span>Blog</span>
-        </v-btn>
+        <router-link to="/blog"  class="v-btn">
+          <v-btn>
+            <span>Blog</span>
+          </v-btn>
+        </router-link>
       </v-bottom-navigation>
     </v-content>
       <router-view/>
@@ -131,13 +136,15 @@
         <v-divider></v-divider>
 
         <v-card-text class="white--text">
-          {{ new Date().getFullYear() }} — <strong>ShipIT</strong>
+          {{ new Date().getFullYear() }} — <strong>Adviso Store</strong>
         </v-card-text>
       </v-card>
     </v-footer>
   </v-app>
 </template>
 <script>
+import router from '../router'
+
     export default {
         data () {
             return {
@@ -151,5 +158,18 @@
                 activeBtn: 1,
             }
         },
+        methods: {
+          onEnter: function(e) {
+            if (e.target.value && e.target.value !== "") {
+              router.push("/search?q=" + e.target.value)
+            }
+          }
+        }
     }
 </script>
+
+<style>
+a {
+  text-decoration: none;
+}
+</style>
