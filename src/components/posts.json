@@ -1,0 +1,20 @@
+[
+    {
+        "id":1,
+        "title":"EXPLORING LONDON’S UNDERGROUND WATERS AT THE NEW AIRE ANCIENT BATHS",
+        "description":"I stepped out into the first tunnel, where the air was misty with moisture. The heavy glass door to the steam room had just been closed and there was a mist so dense you could feel it like a cloak on your shoulders as you meandered past. Candles flickered all around us as my hands grazed the exposed brick walls…",
+        "src":"assets/img/home/slider2.jpg"
+    },
+    {
+        "id":2,
+        "title":"IT’S GOING TO BE A SEASALT CORNWALL SUMMER",
+        "description":"For this trip home to see my family, a portion of my suitcase was reserved specially to bring a bit of England with me. Seasalt Cornwall {Paid Collaboration} sent over a selection from their latest summer collection and it could only be worn for the first time in one place… on the beach! The fabrics were ideal for temperatures that…",
+        "src":"assets/img/home/slider3.jpg"
+    },
+    {
+        "id":3,
+        "title":"AN ONLINE LONDON LIVING HOME ACCENTS EDIT",
+        "description":"I’m back in London for good, on the hunt for a new place to live and, as per usual, I’m putting the horse before the cart and chasing the finer touches for my new flat! Because really you need a pizza cutter and a doormat before you need things like a couch and a bed right? I seem to work…",
+        "src":"assets/img/home/slider4.jpg"
+    }
+]

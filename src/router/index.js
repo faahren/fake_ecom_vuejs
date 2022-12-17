@@ -41,7 +41,7 @@ export default new Router({
           name:'Blog'
         },
         {
-          path:'/post',
+          path:'/post/:id',
           component:Post,
           name:'Post'
         },

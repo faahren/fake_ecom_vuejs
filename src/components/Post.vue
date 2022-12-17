@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-container>
-      <p class="display-3 font-weight-light	text-center pa-4">Best brands for fashion</p>
+      <p class="display-3 font-weight-light	text-center pa-4">{{this.post.title}}</p>
       <p class="overline text-center">By <b>John Doe</b> | January 24,2020</p>
       <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
@@ -11,7 +11,7 @@
             :src="require('../assets/img/home/slider2.jpg')"
           ></v-img>
           <p class="display-1 mb-0 pt-5">Lorem ipsum</p>
-          <p class="pt-5 subtitle-1 font-weight-light">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <p class="pt-5 subtitle-1 font-weight-light">{{this.post.description}}
           </p>
           <ul class="subtitle-1 font-weight-light">
             <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
@@ -27,6 +27,9 @@
           <p class="display-1 mb-0 pt-5">Lorem ipsum</p>
           <p class="subtitle-1 font-weight-light pt-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           </p>
+          <div>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/sWtEYPva4A0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
           <p class="subtitle-1 font-weight-light">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           </p>
           <p class="body-1	font-weight-light pt-10"><b>3 COMMENTS</b></p>
@@ -57,8 +60,11 @@
   </div>
 </template>
 <script>
+
+    const posts = require('./posts.json');
     export default {
         data: () => ({
+            post: {},
             rating:4.5,
             item: 5,
             items: [
@@ -90,5 +96,10 @@
                 },
             ],
         }),
+        beforeMount: function() {
+          const id = this.$route.params.id;
+          const post = posts.find(x => x.id == id);
+          this.post = post;
+        }
     }
 </script>
